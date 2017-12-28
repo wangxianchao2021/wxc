@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:task="http://www.springframework.org/schema/task"  
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+    http://www.springframework.org/schema/tx ">
+  <!--  <import resource="application-spring-cache.xml"/> -->
+  <!--  <import resource="/WEB-INF/config/upmdm.beans.xml"/>  -->
+    	<bean name="testBeanLoad" class="com.wxc.action.TestBeanLoad" scope="singleton" init-method="iniLoad">
+    	   <property name="testBeanParam" ref="testBeanParam"></property>
+    	</bean>
+	    
+	    <bean name="testBeanParam" class="com.wxc.action.TestBeanParam" scope="singleton"></bean>
+	    
+	    
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>  
+    <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />  
+    <bean id="aspectBean" class="com.wxc.aop.TestAnnotationAspect" />  
+    <bean id="aService" class="com.wxc.aop.AServiceImpl"></bean>  
+    <bean name="bService" class="com.wxc.aop.BServiceImpl"></bean>  
+    
+
+</beans>
