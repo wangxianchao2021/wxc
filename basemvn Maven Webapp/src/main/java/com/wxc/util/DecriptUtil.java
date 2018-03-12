@@ -21,6 +21,7 @@ public class DecriptUtil {
      * @parameter�� str��������ַ�secretKeyBase�����������Կ�Ļ��ַ�
      * @return��  �����ֽ�����
      * ggggggggggggggggg
+     * xxxxxxx
     **/
     public static byte[] encryptAES(String str, String secretKeyBase) {
         try {
