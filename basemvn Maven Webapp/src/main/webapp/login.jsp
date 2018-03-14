@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
 <html>
 <head>
-<script src="<%=request.getContextPath()%>/static/js/jquery-1.8.1.min.js"></script>
+<script src="<%=basePath%>/static/js/jquery-1.8.1.min.js"></script>
 </head>
 <body>
 username: <input type="text" id="username"><br><br>  
@@ -16,7 +20,7 @@ $('#loginbtn').click(function() {
     };
     $.ajax({ 
         type: "post", 
-        url: "<%=request.getContextPath()%>" + "/checkLogin.do", 
+        url: "<%=basePath%>" + "/checkLogin.do",
         data: param, 
         dataType: "json", 
         success: function(data) { 
